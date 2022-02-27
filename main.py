@@ -1,16 +1,13 @@
-import gc
-import torch
 import functions as fn
+
 from types import SimpleNamespace
 
-params = {
+params = SimpleNamespace(**{
     'seed': None,
     # Else
     'verbose': True
-}
+})
 
-params = SimpleNamespace(**params)
+fn.clean_caches(params)
 fn.adapt_seed(params)
 
-gc.collect()
-torch.cuda.empty_cache()

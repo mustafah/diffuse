@@ -1,0 +1,5 @@
+#git clone https://github.com/openai/CLIP
+
+#conda init bash
+#conda activate diffuse
+pip install -e ./CLIP

@@ -1,5 +1,6 @@
 import random
-
+import gc
+import torch
 
 def adapt_seed(params):
     seed = params.seed
@@ -13,3 +14,10 @@ def adapt_seed(params):
 
     if params.verbose:
         print(f'Using seed: {seed}')
+
+
+def clean_caches(params):
+    gc.collect()
+    torch.cuda.empty_cache()
+    if params.verbose:
+        print('Empty caches ~')
